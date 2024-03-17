@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="camera.ui.maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:camera.ui.maui.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="camera.ui.maui">
+
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="LoginPage" />
+
+    <ShellContent
+        Title="Cameras"
+        ContentTemplate="{DataTemplate local:CamerasPage}"
+        Route="CamerasPage" />
+</Shell>
