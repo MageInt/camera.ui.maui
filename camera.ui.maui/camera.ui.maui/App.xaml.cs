@@ -8,7 +8,8 @@ namespace camera.ui.maui
         {
             InitializeComponent();
 
-            MainPage = new AppShell(); 
+            MainPage = new AppShell();
+            ((AppShell)MainPage).GoToAsync("//login");
         }
 
         public void SetRootPage(Page page)

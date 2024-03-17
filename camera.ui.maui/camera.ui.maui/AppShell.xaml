@@ -7,13 +7,16 @@
     Shell.FlyoutBehavior="Disabled"
     Title="camera.ui.maui">
 
-    <ShellContent
-        Title="Login"
-        ContentTemplate="{DataTemplate local:LoginPage}"
-        Route="LoginPage" />
+    <TabBar Route="main">
+        <Tab Title="Cameras" >
+            <ShellContent ContentTemplate="{DataTemplate local:CamerasPage}"/>
+        </Tab>
+        <Tab Title="Logs" >
+            <ShellContent ContentTemplate="{DataTemplate local:LogsLivePage}" />
+        </Tab>
+    </TabBar>
 
-    <ShellContent
-        Title="Cameras"
-        ContentTemplate="{DataTemplate local:CamerasPage}"
-        Route="CamerasPage" />
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"  />
+    </ShellItem>
 </Shell>

@@ -4,6 +4,7 @@ using camera.ui.maui.Services;
 using camera.ui.maui.ViewModels;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Hosting;
 
 namespace camera.ui.maui
 {
@@ -34,6 +35,7 @@ namespace camera.ui.maui
         public static MauiAppBuilder RegisterAppServices(this MauiAppBuilder mauiAppBuilder)
         {
             mauiAppBuilder.Services.AddSingleton<IWebService, WebService>();
+            mauiAppBuilder.Services.AddSingleton<ISettingsService, SettingsService>();
 
             return mauiAppBuilder;
         }
@@ -43,7 +45,9 @@ namespace camera.ui.maui
         {
             mauiAppBuilder.Services.AddScoped<CamerasPage>();
             mauiAppBuilder.Services.AddScoped<LoginPage>();
-           
+            mauiAppBuilder.Services.AddScoped<CameraPage>();
+            mauiAppBuilder.Services.AddScoped<LogsLivePage>();
+
             return mauiAppBuilder;
         }
     }

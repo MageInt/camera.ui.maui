@@ -16,14 +16,16 @@ namespace camera.ui.maui.Services
     {
         private const string GetCamerasUrl = "api/cameras?status=Online%2COffline";
         private const string LoginUrl = "api/auth/login";
+        private const string LogsSocketConfigUrl = "socket.io/?EIO=4&transport=polling&t=OvB-Rxg";
 
-        HttpClient HttpClient;
+        public HttpClient HttpClient;
+
+        public HttpClient AuthenticatedHttpClient => HttpClient;
 
         public WebService()
         {
  
         }
-
 
         public async Task Login(string username, string password, string baseURL)
         {
@@ -76,6 +78,22 @@ namespace camera.ui.maui.Services
             Debug.WriteLine($"returned : {returned}");
 
             return returned;
+        }
+
+
+        public async Task<LogsSocketConfigDTO> GetLogsSocketConfig()
+        {
+            try
+            {
+                string result = await GetRequest(LogsSocketConfigUrl);
+                LogsSocketConfigDTO LogsSocketConfigDTO = JsonConvert.DeserializeObject<LogsSocketConfigDTO>(result);
+                return LogsSocketConfigDTO;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return new LogsSocketConfigDTO();
+            }
         }
 
         public async Task<List<Camera>> GetCameras()
