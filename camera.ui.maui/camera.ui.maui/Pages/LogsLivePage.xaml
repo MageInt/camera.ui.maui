@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="camera.ui.maui.Pages.LogsLivePage"
              Title="Logs">
-    <ScrollView>
-        <Label 
-            x:Name="LogsLabel"
-            VerticalOptions="StartAndExpand" 
-            HorizontalOptions="Fill" />
+    <ScrollView Padding="10" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Label 
+             x:Name="LogsLabel"
+             TextColor="White"
+             />
+        </StackLayout>
     </ScrollView>
 </ContentPage>
